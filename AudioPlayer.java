@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 
 //AudioPlayer in java 😁
-public class Main{
+public class AudioPlayer{
     public static void main(String[] args) throws IOException {
         String filePath ="C:\\Users\\TOSHIBA\\Downloads\\24kGoldn - Company (Official Video) ft. Future.wav";
         File file = new File(filePath);
@@ -55,4 +55,5 @@ public class Main{
             System.out.println("Bye!");
         }
     }
+
 }
