@@ -1,13 +1,31 @@
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.util.ArrayList;
+import java.util.Random;
 import java.util.Scanner;
 
 
 //AudioPlayer in java 😁
 public class HangedMan{
     public static void main(String[] args){
-        //JAVA HANGED MAN
+        //JAVA HANGED MANString filePath = "C:\\Users\\TOSHIBA\\Desktop\\uranus.txt";
+        ArrayList<String> words = new ArrayList<>();
 
-        String word = "pizza";
+        try(BufferedReader reader = new BufferedReader(new FileReader(filePath))){
+            String line;
+            while((line = reader.readLine()) != null){
+                words.add(line.trim());
+            }
+        }
+        catch (FileNotFoundException e) {
+            System.out.println("file not found");
+        }
+        catch (Exception e){
+            throw new RuntimeException(e);
+        }
+        Random random = new Random();
+        String word = words.get(random.nextInt(words.size()));
         Scanner scanner = new Scanner(System.in);
         ArrayList<Character> wordList = new ArrayList<>();
         int wrongGuesses = 0;
@@ -109,4 +127,5 @@ public class HangedMan{
             default -> "";
         };
     }
+
 }
